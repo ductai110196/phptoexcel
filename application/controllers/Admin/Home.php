@@ -24,6 +24,7 @@ class Home extends Admin_Controller
             if ($i == 1) {
                 $this->table->set_heading($data[$i]);
             } else {
+                $data[$i]["D"] = is_numeric($data[$i]["D"]) ? $this->dateformatexcel($data[$i]["D"]) : $data[$i]["D"];
                 $this->table->add_row($data[$i]);
             }
         }

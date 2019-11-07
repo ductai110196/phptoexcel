@@ -45,7 +45,8 @@ class Excel extends PHPExcel
             } else {
                 $arr_data[$row][$column] = $data_value;
             }*/
-            $val[$row][$column] = $data_value > 25569 ? PHPExcel_Style_NumberFormat::toFormattedString($data_value, 'DD/MM/YYYY') : $data_value;
+            //$val[$row][$column] = $data_value > 25569 ? PHPExcel_Style_NumberFormat::toFormattedString($data_value, 'DD/MM/YYYY') : $data_value;
+            $val[$row][$column] =  $data_value;
         }
         return  $val;
     }

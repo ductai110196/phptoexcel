@@ -12,17 +12,4 @@
     </div>
 </div>
 <br>
-<!--<table class="table table-bordered table-hover shadow">
-    <thead>
-        <tr class="bg-success text-white">
-            <th scope="col">STT</th>
-            <th scope="col">Họ Tên</th>
-            <th scope="col">Lý</th>
-            <th scope="col">Hóa</th>
-            <th scope="col">Toán</th>
-        </tr>
-    </thead>
-    <tbody id="result">
-    </tbody>
-</table>-->
 <div class="result"></div>
