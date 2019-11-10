@@ -1,5 +1,14 @@
 <script>
 $(document).ready(function() {
+    //insert
+    $(document).on("click", "#btn-add", function() {
+        window.location.href = "http://localhost:8000/phptoexecl/index.php/admin/home/add";
+    })
+    // upload data
+    $(document).on("click", "#check-modal", function() {
+        $("#modal-upload").modal();
+    })
+
     $(document).on("click", "#file_xsls", function() {
         var file = document.getElementById("customFile").files[0];
         let name = file.name;
