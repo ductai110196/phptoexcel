@@ -28,7 +28,7 @@ class Home extends Admin_Controller
                 $this->table->add_row($data[$i]);
             }
         }
-        $this->table->set_template($this->setuptable());
+        // $this->table->set_template($this->setuptable());
         echo $this->table->generate();
     }
 
