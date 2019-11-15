@@ -11,8 +11,22 @@ class Home extends Admin_Controller
     public function index()
     {
         $this->data["page_title"] = "Home";
+        $sql = "SELECT * from hocsinh INNER JOIN diemthi  ON hocsinh.id = diemthi.IDHS";
+        $this->data["before_head"] = $this->m_db->getquery("quanlydiem", $sql);
         $this->render("admin/home/index.php");
         $this->load->view("admin/home/script.php");
+    }
+
+    //delete id
+    public function delete()
+    {
+        $id = $this->input->get("id");
+        if ($this->m_db->delete("quanlydiem", "hocsinh", $id)) {
+            echo "thành công";
+        } else {
+            echo "thất bại";
+        }
+        redirect(base_url() . 'index.php/admin/trang-chu', 'refresh');
     }
     // add data view 
     public function add()
@@ -45,10 +59,11 @@ class Home extends Admin_Controller
                 "DTB" => $dtb
             );
             $rs = $this->m_db->insert("quanlydiem", "diemthi", $point);
-            echo "Thêm dữ Liệu Thất Bại";
+            echo "Thêm dữ Liệu Thành Công";
         } else {
             echo "Thêm dữ Liệu Không Thành Công";
         }
+        redirect(base_url() . 'index.php/admin/trang-chu', 'refresh');
     }
     public function upload()
     {

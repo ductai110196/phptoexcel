@@ -1,5 +1,20 @@
 <script>
 $(document).ready(function() {
+    var ID = "";
+    //edit query
+    $(document).on("click", "#btn-edit", function() {
+        window.location.href = "http://localhost:8000/phptoexecl/index.php/admin/home/edit?id=" + this
+            .value;
+    })
+    //delete query
+    $(document).on("click", "#delete-item", function() {
+        window.location.href = "http://localhost:8000/phptoexecl/index.php/admin/home/delete?id=" + ID;
+    })
+    //delete
+    $(document).on("click", "#btn-delete", function() {
+        $("#modal-delete").modal();
+        ID = $(this).val();
+    })
     //insert
     $(document).on("click", "#btn-add", function() {
         window.location.href = "http://localhost:8000/phptoexecl/index.php/admin/home/add";

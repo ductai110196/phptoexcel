@@ -10,29 +10,31 @@
             <th>Giới Tính</th>
             <th>Ngày Sinh</th>
             <th>Địa Chỉ</th>
+            <th>Toán</th>
             <th>Lý</th>
             <th>Hóa</th>
-            <th>Toán</th>
             <th>Điểm Trung Bình</th>
             <th>Thao Tác</th>
         </tr>
     </thead>
     <tbody>
+        <?php foreach ($before_head as $key => $item) { ?>
         <tr>
-            <td>1</td>
-            <td>Nguyễn Văn A</td>
-            <td>Nam</td>
-            <td>10/08/1996</td>
-            <td>Vĩnh Long</td>
-            <td>9</td>
-            <td>10</td>
-            <td>8</td>
-            <td>9</td>
+            <td><?php echo ($key + 1) ?></td>
+            <td><?php echo $item->HoTen ?></td>
+            <td><?php echo $item->GioiTinh > 0 ? "Nam" : "Nữ" ?></td>
+            <td><?php echo date("d/m/Y",  strtotime($item->NgaySinh)) ?></td>
+            <td><?php echo $item->DiaChi ?></td>
+            <td><?php echo $item->Toan ?></td>
+            <td><?php echo $item->Hoa ?></td>
+            <td><?php echo $item->Ly ?></td>
+            <td><?php echo $item->DTB ?></td>
             <td>
-                <button class="btn btn-info">Sửa</button>
-                <button class="btn btn-danger">Xóa</button>
+                <button id="btn-edit" class="btn btn-info" value="<?php echo $item->IDHS ?>">Sửa</button>
+                <button id="btn-delete" class="btn btn-danger" value="<?php echo $item->IDHS ?>">Xóa</button>
             </td>
         </tr>
+        <?php } ?>
     </tbody>
 </table>
 <!-- Modalupload -->
@@ -64,6 +66,29 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
                 <button type="button" class="btn btn-info">Thực Hiện</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal delete -->
+<div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title font-weight-bold" id="exampleModalLabel">Thông Báo</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h5>Bạn có chắc xóa item này không?</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-info" id="delete-item">Thực Hiện</button>
             </div>
         </div>
     </div>
