@@ -22,6 +22,7 @@ $(document).ready(function() {
     // upload data
     $(document).on("click", "#check-modal", function() {
         $("#modal-upload").modal();
+        $(".loading").hide();
     })
 
     $(document).on("click", "#file_xsls", function() {
@@ -39,25 +40,28 @@ $(document).ready(function() {
                 data: form_data,
                 processData: false,
                 contentType: false,
+                beforeSend: function() {
+                    $(".loading").show();
+                },
                 success: function(res) {
-                    /*var html = "";
-                    var data = JSON.parse(res);
-                    obj = Object.keys(data).length;
-                    for (let i = 2; i <= obj; i++) {
-                        console.log(data[i]);
-                        html += '<tr><th scope="row">' + data[i].A + '</th>';
-                        html += '<td>' + data[i].B + '</td>';
-                        html += '<td>' + data[i].C + '</td>';
-                        html += '<td>' + data[i].D + '</td>';
-                        html += '<td>' + data[i].E + '</td></tr>';
+                    $(".loading").hide();
+                    var html = '';
+                    if (res == 0) {
+                        toastr.error('Tải dữ liệu thất bại');
+                        html += '<h4 class="text-danger font-weight-bold">';
+                        html += "Tải dữ liệu không thành công do dữ liệu đã có";
+                    } else {
+                        toastr.success('Tải dữ liệu thành công');
+                        html += '<h4 class="text-success font-weight-bold">';
+                        html += "Tải dữ liệu thành công";
                     }
-                    $("#result").html(html);*/
-                    //console.log(res);
-                    toastr.success('Tải dữ liệu thành công');
-                    $(".result").html(res);
-                    console.log(res);
+                    html += '</h4>';
+                    $(".result").html(html);
+                    setTimeout(function() {
+                        window.location.reload();
+                    }, 5000)
                 }
-            });
+            })
         }
     });
 })
