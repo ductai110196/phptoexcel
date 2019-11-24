@@ -2,7 +2,7 @@
 <hr>
 <button id="btn-add" class="btn btn-success my-2"><i class="fa fa-plus mx-2"></i>Tạo Dữ Liệu</button>
 <button id="check-modal" class="btn btn-primary my-2"><i class="fa fa-upload mx-2"></i>Upload File Excel</button>
-<table class="table table-bordered table-hover shadow">
+<table class="table table-bordered table-hover shadow table-responsive-sm table-responsive-md table-responsive-lg">
     <thead>
         <tr class="bg-success text-white">
             <th>STT</th>

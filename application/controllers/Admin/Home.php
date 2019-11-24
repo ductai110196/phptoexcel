@@ -115,13 +115,14 @@ class Home extends Admin_Controller
         $data = $this->excel->loadexcel($file);
         $status = 0;
         for ($i = 2; $i <= count($data); $i++) {
+            $ngaysinh = is_numeric($data[$i]["D"]) ? $this->dateformatexcel($data[$i]["D"]) : date("Y-m-d", strtotime($data[$i]["D"]));
             $sv = array(
                 "HoTen" => $data[$i]["B"],
                 "GioiTinh" => $data[$i]["C"] == "Nam" ? 1 : 0,
-                "NgaySinh" => $this->dateformatexcel($data[$i]["D"]),
+                "NgaySinh" => $ngaysinh,
                 "DiaChi" => $data[$i]["E"]
             );
-            $sql = 'SELECT * FROM `hocsinh` WHERE HoTen = "' . $data[$i]["B"] . '" And NgaySinh = "' . $this->dateformatexcel($data[$i]["D"]) . '"';
+            $sql = 'SELECT * FROM `hocsinh` WHERE HoTen = "' . $data[$i]["B"] . '" And NgaySinh = "' .   $ngaysinh . '"';
             if (count($this->m_db->getquery("quanlydiem", $sql)) == 0) {
                 $result = $this->m_db->insert("quanlydiem", "hocsinh", $sv);
                 $idhs  = $result;
@@ -181,5 +182,10 @@ class Home extends Admin_Controller
         date_default_timezone_set('Asia/Ho_Chi_Minh');
         $UNIX_DATE = ($date - 25569) * 86400;
         return gmdate("Y/m/d", $UNIX_DATE);
+    }
+
+    public function dateformattomysql($date)
+    {
+        return date('Y-m-d', strtotime($date));
     }
 }

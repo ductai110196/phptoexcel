@@ -1,5 +1,6 @@
 <script>
 $(document).ready(function() {
+
     var ID = "";
     //edit query
     $(document).on("click", "#btn-edit", function() {
