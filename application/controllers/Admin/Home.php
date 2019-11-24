@@ -115,7 +115,7 @@ class Home extends Admin_Controller
         $data = $this->excel->loadexcel($file);
         $status = 0;
         for ($i = 2; $i <= count($data); $i++) {
-            $ngaysinh = is_numeric($data[$i]["D"]) ? $this->dateformatexcel($data[$i]["D"]) : date("Y-m-d", strtotime($data[$i]["D"]));
+            $ngaysinh =  is_numeric($data[$i]["D"]) ? $this->dateformatexcel($data[$i]["D"]) : $this->dateformattomysql($data[$i]["D"]);
             $sv = array(
                 "HoTen" => $data[$i]["B"],
                 "GioiTinh" => $data[$i]["C"] == "Nam" ? 1 : 0,
@@ -186,6 +186,7 @@ class Home extends Admin_Controller
 
     public function dateformattomysql($date)
     {
-        return date('Y-m-d', strtotime($date));
+        $rpl = str_replace('/', '-', $date);
+        return date('Y-m-d', strtotime($rpl));
     }
 }
