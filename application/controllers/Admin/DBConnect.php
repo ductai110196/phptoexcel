@@ -4,14 +4,14 @@ class DBConnect extends Admin_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("m_db");
+        $this->load->model("m_tool");
         $this->load->database();
     }
 
     public function index()
     {
         $this->data["page_title"] = "Database";
-        $this->data["before_head"] = $this->m_db->getquery("SHOW DATABASES");
+        $this->data["before_head"] = $this->m_tool->getquery("SHOW DATABASES");
         if ($this->session->userdata("db") != "") {
             $this->db->db_select($this->session->userdata("db"));
         }
