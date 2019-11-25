@@ -8,7 +8,7 @@
 <footer class="sticky-footer bg-white  border-bottom-success">
     <div class="container my-auto">
         <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Nguyễn Đức Tài Website 2019</span>
+            <span>Copyright &copy; Your Website 2019</span>
         </div>
     </div>
 </footer>
