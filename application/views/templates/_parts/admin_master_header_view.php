@@ -79,6 +79,13 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link" href="<?php echo base_url() ?>index.php/admin/trang-chu">
+                    <i class="fas fa-fw fa fa-upload text-white"></i>
+                    <span>Tải Nhiều Dữ Liệu</span>
+                </a>
+            </li>
+
             <!-- Divider -->
 
             <!-- Heading -->
