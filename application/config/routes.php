@@ -53,5 +53,6 @@ $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin/trang-chu'] = '/admin/home/index';
+$route['admin/tai-nhieu-du-lieu'] = '/admin/upload/index';
 $route['admin/co-so-du-lieu'] = '/admin/dbconnect/index';
 $route['admin/du-lieu/bang'] = '/admin/table/index';

@@ -80,7 +80,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url() ?>index.php/admin/trang-chu">
+                <a class="nav-link" href="<?php echo base_url() ?>index.php/admin/tai-nhieu-du-lieu">
                     <i class="fas fa-fw fa fa-upload text-white"></i>
                     <span>Tải Nhiều Dữ Liệu</span>
                 </a>

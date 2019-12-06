@@ -11,13 +11,23 @@ class Excel extends PHPExcel
         parent::__construct();
     }
 
-    public function ExcelReader($file)
+    public function ExcelReader($file, $sheetnames)
     {
         $objRender = PHPExcel_IOFactory::createReaderForFile($file);
+        $objRender->setLoadSheetsOnly($sheetnames);
         $objExcel = $objRender->load($file);
         $sheetData = $objExcel->getActiveSheet()->toArray("null", true, true, true);
         return $sheetData;
     }
+
+
+    public function ListSheet($file)
+    {
+        $objRender = PHPExcel_IOFactory::createReaderForFile($file);
+        $list = $objRender->listWorksheetNames($file);
+        return $list;
+    }
+
 
     public function getlenghtcolum($file)
     {
