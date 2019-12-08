@@ -24,8 +24,7 @@ $(document).ready(function() {
                     $(".loading").show();
                 },
                 success: function(res) {
-                    console.log(res);
-                    /*$(".loading").hide();
+                    $(".loading").hide();
                     var html = '';
                     if (res == 0) {
                         toastr.error('Tải dữ liệu thất bại');
@@ -40,7 +39,7 @@ $(document).ready(function() {
                     $(".result").html(html);
                     setTimeout(function() {
                         window.location.reload();
-                    }, 5000)*/
+                    }, 5000)
                 }
             })
         }
